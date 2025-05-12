@@ -1,0 +1,43 @@
+﻿{
+  Audiences: [
+    JwtTokenAudience
+  ],
+  Claims: [
+    {
+      role: Admin
+    },
+    {
+      nbf: 1203156900
+    },
+    {
+      exp: 1203160500
+    },
+    {
+      iss: JwtTokenIssuer
+    },
+    {
+      aud: JwtTokenAudience
+    }
+  ],
+  EncodedHeader: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9,
+  EncodedPayload: eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsIm5iZiI6MTIwMzE1NjkwMCwiZXhwIjoxMjAzMTYwNTAwLCJpc3MiOiJKd3RUb2tlbklzc3VlciIsImF1ZCI6Ikp3dFRva2VuQXVkaWVuY2UifQ,
+  Header: {
+    alg: HS256,
+    typ: JWT
+  },
+  Issuer: JwtTokenIssuer,
+  Payload: {
+    aud: JwtTokenAudience,
+    exp: 1203160500,
+    http://schemas.microsoft.com/ws/2008/06/identity/claims/role: Admin,
+    iss: JwtTokenIssuer,
+    nbf: 1203156900
+  },
+  RawData: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsIm5iZiI6MTIwMzE1NjkwMCwiZXhwIjoxMjAzMTYwNTAwLCJpc3MiOiJKd3RUb2tlbklzc3VlciIsImF1ZCI6Ikp3dFRva2VuQXVkaWVuY2UifQ.pD_X0tgJG8pXcYkYzZtXNepJP2MRjfTr9bWJyuq4Bbs,
+  RawHeader: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9,
+  RawPayload: eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsIm5iZiI6MTIwMzE1NjkwMCwiZXhwIjoxMjAzMTYwNTAwLCJpc3MiOiJKd3RUb2tlbklzc3VlciIsImF1ZCI6Ikp3dFRva2VuQXVkaWVuY2UifQ,
+  RawSignature: pD_X0tgJG8pXcYkYzZtXNepJP2MRjfTr9bWJyuq4Bbs,
+  SignatureAlgorithm: HS256,
+  ValidFrom: DateTime_1,
+  ValidTo: DateTime_2
+}

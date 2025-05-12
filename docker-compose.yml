@@ -1,0 +1,53 @@
+services:
+  postgresql:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+
+  db-migrations:
+    build:
+      context: .
+      dockerfile: UserManagementService.Database/Dockerfile
+    depends_on:
+      postgresql:
+        condition: service_healthy
+
+  auth-db-migrations:
+    build:
+      context: .
+      dockerfile: AuthService.Database/Dockerfile
+    depends_on:
+      db-migrations:
+        condition: service_completed_successfully
+
+  usermanagementservice:
+    image: ${DOCKER_REGISTRY-}usermanagementservice
+    build:
+      context: .
+      dockerfile: UserManagementService/Dockerfile
+    depends_on:
+      db-migrations:
+        condition: service_completed_successfully
+
+  authservice:
+    image: ${DOCKER_REGISTRY-}usermanagementservice
+    build:
+      context: .
+      dockerfile: AuthService/Dockerfile
+    depends_on:
+      auth-db-migrations:
+        condition: service_completed_successfully
+
+volumes:
+  pgdata:
